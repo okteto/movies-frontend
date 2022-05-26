@@ -1,5 +1,20 @@
-name: frontend
-image: okteto/movies-frontend:dev
-command: yarn start
-sync:
-  - .:/src
+build:
+  frontend:
+    image: okteto.dev/frontend
+    context: .
+  
+  frontend-dev:
+    image: okteto.dev/frontend-dev
+    context: .
+    target: dev
+
+deploy:
+  - name: Deploy Frontend
+    command: helm upgrade --install movies-frontend chart --set image=${OKTETO_BUILD_FRONTEND_IMAGE}
+
+dev:
+  frontend:
+    image: ${OKTETO_BUILD_FRONTEND_DEV_IMAGE}
+    command: yarn start
+    sync:
+    - .:/src
