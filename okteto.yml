@@ -1,8 +1,10 @@
 build:
   frontend:
+    image: okteto.dev/frontend
     context: .
   
   frontend-dev:
+    image: okteto.dev/frontend-dev
     context: .
     target: dev
 
