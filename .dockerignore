@@ -1,0 +1,7 @@
+# Files that the Docker build needs: the dependencies, the build configuration, and the code
+*
+!package.json
+!package-lock.json
+!.babelrc
+!webpack.config.js
+!src

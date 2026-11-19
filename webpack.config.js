@@ -5,12 +5,12 @@ const srcPath = path.join(__dirname, 'src');
 
 module.exports = {
   context: srcPath,
-  mode: 'development',
   target: 'web',
   entry: ['./index.jsx'],
   output: {
     filename: 'app.[contenthash].js',
     path: path.join(__dirname, '/dist'),
+    clean: true,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.css'],
@@ -37,14 +37,7 @@ module.exports = {
       use: ['style-loader', 'css-loader']
     }, {
       test: /\.(png|jpg|gif)$/i,
-      use: [
-        {
-          loader: 'url-loader',
-          options: {
-            limit: 8192,
-          },
-        },
-      ],
+      type: 'asset',
     }]
   },
   plugins: [
@@ -57,14 +50,7 @@ module.exports = {
     port: 80,
     host: '0.0.0.0',
     hot: true,
-    sockPort: 443,
-    disableHostCheck: true,
-    watchOptions: {
-      poll: true
-    },
-    proxy: {
-      '/api': 'http://movies-api:8080'
-    }
+    allowedHosts: 'all',
   },
   cache: {
     type: 'filesystem',
