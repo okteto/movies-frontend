@@ -1,7 +1,8 @@
-# Files that the Docker build needs: the dependencies, the build configuration, and the code
+# Files that the Docker build needs: the dependencies, the Vite configuration, and the code
 *
 !package.json
 !package-lock.json
-!.babelrc
-!webpack.config.js
+!vite.config.js
+!index.html
+!public
 !src

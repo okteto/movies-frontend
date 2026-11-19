@@ -6,7 +6,7 @@ The [Movies App](https://github.com/okteto/movies-multi-repo) is composed by the
 
 - A very simple Node.js API using [Express](https://expressjs.com). Deployed using a [Helm Chart](https://github.com/okteto/movies-api/tree/master/chart).
 - A [MongoDB](https://www.mongodb.com) database, defined in a different [GitHub repository](https://github.com/okteto/mongodb).
-- A React frontend, built with [webpack](https://webpack.js.org) and served by NGINX. Deployed using a [Helm Chart](https://github.com/okteto/movies-frontend/tree/main/chart).
+- A React frontend, built with [Vite](https://vite.dev) and served by NGINX. Deployed using a [Helm Chart](https://github.com/okteto/movies-frontend/tree/main/chart).
 
 ## Deploy
 
@@ -20,4 +20,4 @@ Execute the following command to activate your development container:
 $ okteto up
 ```
 
-The development container runs the webpack development server with `npm start`, and reloads the page in your browser when you change a file of `src`.
+The development container runs the Vite development server with `npm start`, which updates the page in your browser when you change a file of `src`.
