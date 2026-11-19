@@ -1,0 +1,8 @@
+# Files that the Docker build needs: the dependencies, the Vite configuration, and the code
+*
+!package.json
+!package-lock.json
+!vite.config.js
+!index.html
+!public
+!src

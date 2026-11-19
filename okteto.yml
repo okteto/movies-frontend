@@ -1,15 +1,12 @@
 build:
-  frontend:
-    context: .
-    dockerfile: Dockerfile
-  
   frontend-dev:
     context: .
-    dockerfile: Dockerfile
     target: dev
-
-dependencies:
-  - https://github.com/okteto/movies-multi-repo
+  frontend:
+    context: .
+    target: prod
+    depends_on:
+      - frontend-dev
 
 deploy:
   - name: Deploy Frontend
@@ -18,6 +15,8 @@ deploy:
 dev:
   frontend:
     image: ${OKTETO_BUILD_FRONTEND_DEV_IMAGE}
-    command: yarn start
+    command: npm start
     sync:
       - .:/src
+    persistentVolume:
+      enabled: false
